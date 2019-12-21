@@ -32,9 +32,6 @@ class SuperUserController extends Controller
         $dados['utilizador'] = $utilizador;
         $dados['titulo'] = 'ISAM | Administrção';
 
-        return $dados;
-
-        //return $dados['utilizador']->id;
         return view('superUser.editar')->with('dados', $dados);
 
     }
@@ -73,9 +70,6 @@ class SuperUserController extends Controller
         $dados['items'] = $items;
         $dados['utilizador'] = $utilizador;
         $dados['success'] = 'Dados de utilizador atualizados com sucesso!';
-
-
-
         return view('superUser.editar')->with('dados', $dados);
 
     }

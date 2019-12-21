@@ -2,21 +2,25 @@
 
 namespace App;
 
+use Hamcrest\Core\HasToString;
+use Laravel\Passport\HasApiTokens;
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+    public $timestamps = true;
     protected $fillable = [
-        'name', 'email', 'password',
+        'nome', 'email', 'password', 'permissao', 'id_aluno',
     ];
 
     /**
@@ -25,7 +29,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'remember_token',
     ];
 
     /**
@@ -36,4 +40,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function permissao(){
+
+        return $this->hasOne('App\Permissoes', 'id', 'permissao');
+
+    }
+
+    public function Aluno(){
+        return $this->hasMany('App\Alunos', 'id_aluno', 'id_aluno');
+    }
+
+    //Mutator para ir buscar o titulo da pagina
+    public function getTituloAttribute()
+    {
+        $titulo = Permissoes::where('id', auth()->user()->permissao)->get();
+        return $titulo[0]->titulo_pagina;
+    }
+
 }

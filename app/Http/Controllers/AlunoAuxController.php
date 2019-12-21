@@ -18,7 +18,7 @@ class AlunoAuxController extends Controller
      *  - Query SQL: select * from `notas` where id_nota in (select max(id_nota) FROM notas group by id_aluno, id_modulo) and `id_aluno` = ?
      *
      * Parâmetros de entrada: Sem parâmetro
-     * Parâmetro de saída: Sem parâmetro
+     * Parâmetro de saída: Dados recolhidos no formato datatable
      *
      * @return void
      */

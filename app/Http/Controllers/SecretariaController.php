@@ -33,6 +33,7 @@ class SecretariaController extends Controller
             return view('secretaria/uploadCSV')->with('dados', $dados);
         }
 
+
         $dados['sucesso']=true;
         $dados['mensagem']='Aluno(s) inserido(s) com sucesso';
         return view('secretaria/uploadCSV')->with('dados', $dados);
@@ -98,10 +99,26 @@ class SecretariaController extends Controller
         $dados = User::with('permissao', 'Aluno.cursos')
                 ->where('permissao', '=', 4)
                 ->get();
-        //return $dados;
 
+
+        /*foreach($dados as $dado){
+            $arrayTmp = array();
+            $teste = $dado->aluno[0]->cursos->nome_curso;
+            $array = str_split($teste);
+            foreach($array as $char){
+                if (preg_match("/^[A-Z]+$/", $char) == 1 || is_numeric($char) || $char == '/'){
+                    array_push($arrayTmp, $char);
+                }
+            }
+            $dado['aluno'][0]['cursos']['nome_curso'] = implode("",$arrayTmp);
+        }*/
+
+
+
+        return $dados;
         //Retornar a view com os dados em JSON descodificados
         //Desta forma enviam-se os dados das relações
+        //return $dados;
         return view('secretaria/query')->with('dados', $dados);
     }
     public function showEditForm(Request $request, $id){
@@ -140,6 +157,8 @@ class SecretariaController extends Controller
 
         //Concactenar nomes
         $user->nome = $primeiro_nome.' '.$ultimo_nome;
+
+        //Se a password estiver em branco nao altera
         if($request->password == ''){
             $user->password = $userTMP->password;
         }else{
@@ -191,6 +210,7 @@ class SecretariaController extends Controller
                 $dado->nota = 'NS';
         }
         return datatables()->of($dados)->make(true);
+
 
 
     }

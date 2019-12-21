@@ -175,20 +175,20 @@ class APIgetIdsController extends Controller
 
     public function storeDisciplina($nomeDisciplina, $idCurso){
         $disciplina = new Disciplinas();
-            $disciplina-> nome_disciplina = $nomeDisciplina;
-            $disciplina-> id_curso = $idCurso;
-            $disciplina->save();
-            //PROCURAR O ID DA DISCIPLINA CRIADA
+        $disciplina-> nome_disciplina = $nomeDisciplina;
+        $disciplina-> id_curso = $idCurso;
+        $disciplina->save();
+        //PROCURAR O ID DA DISCIPLINA CRIADA
 
-            $idDisciplina = DB::table('disciplinas')
-                    ->select('id_disciplina')
-                    ->where([
-                        ['nome_disciplina', '=', $nomeDisciplina],
-                        ['id_curso', '=', $idCurso],
-                    ])
-                    ->get();
+        $idDisciplina = DB::table('disciplinas')
+                ->select('id_disciplina')
+                ->where([
+                    ['nome_disciplina', '=', $nomeDisciplina],
+                    ['id_curso', '=', $idCurso],
+                ])
+                ->get();
 
-            return $idDisciplina;
+        return $idDisciplina;
     }
 
     public function storeModulo($nomeModulo, $idDisciplina){

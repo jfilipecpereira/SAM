@@ -14,7 +14,6 @@ class alunos extends Model
 
     public function Notas(){
 
-        //return $this->hasMany('App\Comment', 'foreign_key', 'local_key');
 
         return $this->belongsTo('App\Notas', 'id_aluno', 'id_nota');
     }

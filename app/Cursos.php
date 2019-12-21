@@ -10,9 +10,13 @@ class cursos extends Model
     public $timestamps = true;
 
 
-    public function disciplina(){
+    public function alunos(){
+        return $this->hasMany('App\alunos', 'id_curso', 'id_curso');
 
-        //return $this->hasMany('App\permissoes', 'id', 'permissao');
+    }
+
+
+    public function disciplina(){
 
         return $this->hasMany('App\Disciplinas', 'id_discilina', 'id_curso');
 

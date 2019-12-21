@@ -66,7 +66,7 @@ class APIController extends APIgetIdsController
         $nota-> created_at = Carbon::now()->format('Y-m-d H:i:s');
         $nota->updated_at = Carbon::now()->format('Y-m-d H:i:s');
         $nota->save();
-        return response('Aluno inserido com sucesso', 200);
+        return response('Registo inserido com sucesso', 200);
 
     }
 

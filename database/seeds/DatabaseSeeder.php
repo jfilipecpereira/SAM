@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        //Semear dados essenciais ao software: Tipos de utilizador e utilizador super user
+        $this->call(PermissoesTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+
     }
 }

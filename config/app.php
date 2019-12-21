@@ -162,6 +162,13 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        //Provider for data table
+        Yajra\Datatables\DatatablesServiceProvider::class,
+
+
+
+        //Provider for import and export CSV
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -230,6 +237,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        //Alias for data Table
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+
+        //Alias for CSV
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

@@ -9,17 +9,19 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "consoletvs/charts": "6.*",
         "fideloper/proxy": "^4.0",
+        "fx3costa/laravelchartjs": "^2.6",
         "jeroennoten/laravel-adminlte": "^3.0",
-        "laravel/framework": "^6.2",
+        "laravel/framework": "^6.0",
         "laravel/passport": "^8.0",
         "laravel/tinker": "^1.0",
-        "laravel/ui": "^1.1"
+        "maatwebsite/excel": "^3.1",
+        "yajra/laravel-datatables-oracle": "^9.7"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
+        "laravel/ui": "^1.1",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^8.0"

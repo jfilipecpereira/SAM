@@ -106,9 +106,6 @@ Route::middleware(['auth', 'Aluno'])->name('Aluno')->group(function () {
     Route::get('/aluno/', 'AlunoController@index')->name('inicial');
     //Routa para o ajax ir buscar a datatable
     Route::get('/aluno/datatable/', 'AlunoController@alunodataTable')->name('datatable');
-
-
-
 });
 
 

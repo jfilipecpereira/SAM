@@ -74,6 +74,7 @@ class DirecaoController extends Controller
         }
 
         return datatables()->of($dados)->make(true);
+
     }
 
 
